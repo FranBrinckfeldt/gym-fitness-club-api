@@ -18,7 +18,7 @@ def user_register(user):
             user['apellido'], 
             user['fechaNacimiento'],
             user['estatura'],
-            hashed_password.decode('utf-8')));
+            hashed_password.decode('utf-8')))
         connection.commit()
         user['id'] = cursor.lastrowid
         user['clave'] = hashed_password.decode('utf-8')
