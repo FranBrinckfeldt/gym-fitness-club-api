@@ -1,5 +1,5 @@
 from flask import Flask, jsonify
-#from .routes import 
+from .routes import users_blueprint, evaluaciones_blueprint
 from .errors import http_errors
 
 app = Flask(__name__)
@@ -10,6 +10,7 @@ app.url_map.strict_slashes = False
 def hello_world():
     return 'Gym Fitness Club - Flask'
 
-#app.register_blueprint(products_blueprint, url_prefix = '/products')
+app.register_blueprint(evaluaciones_blueprint, url_prefix = '/evaluaciones')
+app.register_blueprint(users_blueprint)
 
 app.register_blueprint(http_errors)
